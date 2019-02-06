@@ -64,3 +64,8 @@ spring:
       max-idle: 200
 logging:
   config: classpath:logback-boot.xml
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

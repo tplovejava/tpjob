@@ -1,18 +1,36 @@
 package com.tp.soft.util.model;
 
-import java.io.Serializable;
+import com.github.pagehelper.Page;
+
 import java.util.List;
 
-public class PageResult<T> implements Serializable {
-    //当前页数
+public class PageResult<T> implements java.io.Serializable{
+
+    private static final long serialVersionUID = 4634696511476284259L;
+
+    /**
+     * 当前页
+     */
     private int pageNum;
-    //每页显示多少数据
+
+    /**
+     * 页显示记录
+     */
     private int pageSize;
-    //总页数
+
+    /**
+     * 总记录数
+     */
     private long total;
 
+    /**
+     * 共几页
+     */
     private int pages;
 
+    /**
+     * 数据集
+     */
     private List<T> rows;
 
     public int getPageNum() {
@@ -53,5 +71,13 @@ public class PageResult<T> implements Serializable {
 
     public void setRows(List<T> rows) {
         this.rows = rows;
+    }
+
+    public void autowire(Page page){
+        this.setPageNum(page.getPageNum());
+        this.setPageSize(page.getPageSize());
+        this.setTotal(page.getTotal());
+        this.setPages(page.getPages());
+        this.setRows(page.getResult());
     }
 }

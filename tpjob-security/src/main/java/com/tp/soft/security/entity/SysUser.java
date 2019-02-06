@@ -1,6 +1,8 @@
 package com.tp.soft.security.entity;
 
-public class SysUser {
+import com.tp.soft.util.query.BasePageQuery;
+
+public class SysUser extends BasePageQuery {
     private int userid;
     private String username;
     private String userpass;
