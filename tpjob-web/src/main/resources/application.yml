@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/mq?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: tp19900818
+    password: ****
     druid:
       # 连接池的配置信息
       # 初始化大小，最小，最大
