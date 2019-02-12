@@ -1,13 +1,23 @@
 package com.tp.soft;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@MapperScan("com.tp.soft.*.dao")
+@EnableDiscoveryClient
+//@EnableFeignClients
 public class SpringApplicationMain {
     public static void main(String[] args) {
         SpringApplication.run(SpringApplicationMain.class, args);
+    }
+
+    @Bean
+    @LoadBalanced
+    RestTemplate restTemplate(){
+        return new RestTemplate();
     }
 }

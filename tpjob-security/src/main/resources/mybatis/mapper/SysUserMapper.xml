@@ -5,7 +5,7 @@
         select * from sysUser
     </select>
 
-    <select id="findById" parameterType="_int" resultType="sysUser">
+    <select id="findById" parameterType="int" resultType="sysUser">
         select * from sysUser where userid = #{userid}
     </select>
 </mapper>

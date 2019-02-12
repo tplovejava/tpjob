@@ -1,39 +1,18 @@
 package com.tp.soft.security;
 
-import com.github.pagehelper.Page;
-import com.tp.soft.security.entity.SysUser;
-import com.tp.soft.security.service.SysUserSvc;
-import com.tp.soft.util.model.PageResult;
-import com.tp.soft.util.redis.RedisService;
-import com.tp.soft.util.web.ApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
-import java.util.List;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class SysUserController {
 
-    @Resource
-    private SysUserSvc sysUserSvc;
-
-    @Resource
-    private RedisService redisService;
+    @Autowired
+    private RestTemplate restTemplate;
 
     @GetMapping("queryList")
-    public ApiResponse<List<SysUser>> queryList(){
-        redisService.set("zs", "12345");
-        return ApiResponse.success(sysUserSvc.findAllUser());
-    }
-
-    @PostMapping("selectPageSysUserByQuery")
-    public ApiResponse<PageResult<SysUser>> selectPageSysUserByQuery(@RequestBody SysUser sysUser){
-        Page<SysUser> sysUsers = sysUserSvc.selectPageSysUserByQuery(sysUser);
-        PageResult<SysUser> result = new PageResult<SysUser>();
-        result.autowire(sysUsers);
-        return ApiResponse.success(result);
+    public String queryList(){
+        return restTemplate.getForObject("http://TPJOB-SECURITY/queryList", String.class);
     }
 }

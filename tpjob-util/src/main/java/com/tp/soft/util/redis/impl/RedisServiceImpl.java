@@ -14,19 +14,19 @@ import javax.annotation.Resource;
 public class RedisServiceImpl implements RedisService {
 
     @Resource
-    private RedisTemplate<String, ?> redisTemplate;
+    private RedisTemplate redisTemplate;
 
 
     @Override
     public boolean set(final String key, final String value) {
-        Boolean result = redisTemplate.execute(new RedisCallback<Boolean>() {
+        redisTemplate.execute(new RedisCallback<Boolean>() {
             @Override
             public Boolean doInRedis(RedisConnection redisConnection) throws DataAccessException {
                 RedisSerializer<String> stringSerializer = redisTemplate.getStringSerializer();
-                redisConnection.set(stringSerializer.serialize(key), stringSerializer.serialize(value));
+                redisConnection.set(key.getBytes(), value.getBytes());
                 return true;
             }
         });
-        return result;
+        return true;
     }
 }
