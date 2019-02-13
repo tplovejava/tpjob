@@ -2,7 +2,12 @@ server:
   port: 7000
 spring:
   application:
-    name: tpjob-security
+    name: mytest
+  cloud:
+    config:
+      uri: http://localhost:5000/        #Config server的uri
+      profile: dev                       #指定的环境
+      label: master                      #指定分支
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
