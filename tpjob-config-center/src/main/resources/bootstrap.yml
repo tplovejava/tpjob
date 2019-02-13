@@ -8,5 +8,5 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/tplovejava/springcloud.git
-          search-paths: config-center
+          uri: https://github.com/tplovejava/tpjob.git
+          search-paths: tpjob-base-config

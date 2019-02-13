@@ -2,83 +2,12 @@ server:
   port: 7000
 spring:
   application:
-    name: mytest
+    name: tpjob-security
   cloud:
     config:
       uri: http://localhost:5000/        #Config server的uri
       profile: dev                       #指定的环境
       label: master                      #指定分支
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/mq?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: tp19900818
-    druid:
-      # 连接池的配置信息
-      # 初始化大小，最小，最大
-      initial-size: 5
-      min-idle: 5
-      maxActive: 20
-      # 配置获取连接等待超时的时间
-      maxWait: 60000
-      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
-      timeBetweenEvictionRunsMillis: 60000
-      # 配置一个连接在池中最小生存的时间，单位是毫秒
-      minEvictableIdleTimeMillis: 300000
-      validationQuery: SELECT 1 FROM DUAL
-      testWhileIdle: true
-      testOnBorrow: false
-      testOnReturn: false
-      # 打开PSCache，并且指定每个连接上PSCache的大小
-      poolPreparedStatements: true
-      maxPoolPreparedStatementPerConnectionSize: 20
-      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-#      filters: stat,wall,log4j
-      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
-      connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
-      # 配置DruidStatFilter
-      web-stat-filter:
-        enabled: true
-        url-pattern: "/*"
-        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
-      # 配置DruidStatViewServlet
-      stat-view-servlet:
-        url-pattern: "/druid/*"
-        # IP白名单(没有配置或者为空，则允许所有访问)
-        allow: 127.0.0.1
-        # IP黑名单 (存在共同时，deny优先于allow)
-        #deny: 192.168.1.73
-        #  禁用HTML页面上的“Reset All”功能
-        reset-enable: false
-        # 登录名
-        login-username: admin
-        # 登录密码
-        login-password: 123456
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    password:
-     jedis:
-      pool:
-        max-active: 8
-          #最大等待连接中的数量,设 0 为没有限制
-        max-idle: 8
-        #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
-        max-wait: -1ms
-        #最小等待连接中的数量,设 0 为没有限制
-        min-idle: 0
-      lettuce:
-        pool:
-          max-active: 8
-          max-idle: 8
-          max-wait: -1ms
-          min-idle: 0
-        shutdown-timeout: 100ms
-mybatis:
-  mapper-locations: classpath:mybatis/mapper/*Mapper.xml
-  config-location: classpath:mybatis/mapper/config/sqlMapConfig.xml
-  type-aliases-package: com.tp.soft
 eureka:
   client:
     service-url:
