@@ -11,8 +11,8 @@ public class SysUserController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping("queryList")
+    @GetMapping("queryListweb")
     public String queryList(){
-        return restTemplate.getForObject("http://TPJOB-SECURITY/queryList", String.class);
+        return restTemplate.getForObject("http://tpjob-security/queryList", String.class);
     }
 }

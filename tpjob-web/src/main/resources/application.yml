@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 7001
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -48,6 +48,8 @@ spring:
         login-username: admin
         # 登录密码
         login-password: 123456
+  application:
+    name: tpjob-web
 pagehelper:
   helper-dialect: mysql
   reasonable: true

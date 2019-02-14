@@ -1,0 +1,27 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: tbjob-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: security-route
+        uri: lb://tpjob-security
+        predicates:
+          - Path=/tpjob-security/**
+        filters:
+          - StripPrefix=1
+          - JwtCheck
+      - id: web-route
+        uri: lb://tpjob-web
+        predicates:
+          - Path=/tpjob-web/**
+        filters:
+          - StripPrefix=1
+#          - JwtCheck
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
