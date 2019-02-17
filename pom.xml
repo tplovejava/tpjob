@@ -79,7 +79,8 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.tp.soft.SpringApplicationMain</mainClass>
+                    <mainClass>com.tp.soft.SecurityRunMain</mainClass>
+                    <classifier>exec</classifier>
                 </configuration>
                 <executions>
                     <execution>
@@ -98,7 +99,6 @@
                     <fork>true</fork>
                 </configuration>
             </plugin>
-            
         </plugins>
     </build>
 </project>

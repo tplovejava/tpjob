@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tp.soft.security.dao.SysUserMapper">
-    <select id="findAll" resultType="sysUser">
+    <resultMap id="baseResultMap" type="com.tp.soft.security.entity.SysUser">
+        <id column="user_id" jdbcType="INTEGER" property="userId"></id>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"></result>
+        <result column="user_pass" jdbcType="VARCHAR" property="userPass"></result>
+        <result column="user_truename" jdbcType="VARCHAR" property="userTruename"></result>
+    </resultMap>
+
+    <select id="findAll" resultMap="baseResultMap">
         select * from sysUser
     </select>
 
-    <select id="findById" parameterType="int" resultType="sysUser">
-        select * from sysUser where userid = #{userid}
+    <select id="findById" parameterType="int" resultMap="baseResultMap">
+        select * from sysUser where user_id = #{userid}
     </select>
 </mapper>
