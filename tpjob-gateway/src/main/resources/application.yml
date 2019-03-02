@@ -13,14 +13,7 @@ spring:
           - Path=/tpjob-security/**
         filters:
           - StripPrefix=1
-          - JwtCheck
-      - id: web-route
-        uri: lb://tpjob-web
-        predicates:
-          - Path=/tpjob-web/**
-        filters:
-          - StripPrefix=1
-#          - JwtCheck
+          - UserToken
 eureka:
   client:
     service-url:
