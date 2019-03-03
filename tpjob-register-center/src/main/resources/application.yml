@@ -16,3 +16,8 @@ eureka:
       defaultZone: http://127.0.0.1:8761/eureka/
 #通过引用上面的定义来声明注册地址，有一定局限性主要在hostname这块，上面写死的方式比较灵活，如果一定要用下面这种方法，必要时hostname的映射一定要匹配地址，需要在host文件中做映射
 #      defaultZone: http://${eureka.instance.hostname}:{server.port}/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

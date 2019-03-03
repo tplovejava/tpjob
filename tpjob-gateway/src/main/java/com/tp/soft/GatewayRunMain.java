@@ -8,7 +8,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.cors.reactive.CorsUtils;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
@@ -16,7 +15,6 @@ import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
 @SpringCloudApplication
-@RestController
 public class GatewayRunMain {
     private static final String ALL = "*";
     private static final String MAX_AGE = "3600";
@@ -49,4 +47,5 @@ public class GatewayRunMain {
             return chain.filter(ctx);
         };
     }
+
 }

@@ -5,6 +5,8 @@ spring:
     name: tbjob-gateway
   cloud:
     gateway:
+      locator:
+       enabled: true
       routes:
       - id: security-route
         uri: lb://tpjob-security
@@ -17,7 +19,7 @@ spring:
               redis-rate-limiter.burstCapacity: 3  # 流速 每秒 允许在一秒钟内完成的最大请求数
               key-resolver: "#{@remoteAddrKeyResolver}" #SPEL表达式去的对应的bean
           - StripPrefix=1
-          - UserToken
+#          - UserToken
       - id: security-route
         uri: lb://tpjob-web
         predicates:

@@ -21,7 +21,7 @@ public class AuthTokenFilter implements GlobalFilter, Ordered {
         //System.out.println(requestUrl);
         //请求白名单
         if (requestUrl.contains("SSOAuth") || requestUrl.contains("TokenCenter") || requestUrl.contains("upload/")
-                || requestUrl.contains("login")) {
+                || requestUrl.contains("login") || requestUrl.contains("v2/api-docs")) {
             return chain.filter(exchange);
         }
         String warningStr = null;
