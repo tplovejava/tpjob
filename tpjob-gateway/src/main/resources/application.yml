@@ -1,6 +1,5 @@
 server:
   port: 5001
-
 spring:
   application:
     name: tbjob-gateway
@@ -19,6 +18,13 @@ spring:
               key-resolver: "#{@remoteAddrKeyResolver}" #SPEL表达式去的对应的bean
           - StripPrefix=1
           - UserToken
+      - id: security-route
+        uri: lb://tpjob-web
+        predicates:
+          - Path=/tpjob-web/**
+  redis:
+    host: 127.0.0.1
+    port: 6379
 eureka:
   client:
     service-url:
