@@ -34,8 +34,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Swagger API")
-                .description("test")
+                .title("权限服务")
+                .description("权限服务")
                 .termsOfServiceUrl("")
                 .contact(new Contact("wd", "", ""))
                 .version("2.0")

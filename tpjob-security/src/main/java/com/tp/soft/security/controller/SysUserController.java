@@ -22,14 +22,14 @@ public class SysUserController {
     @Resource
     private SysUserSvc sysUserSvc;
 
-    @ApiOperation(value = "查询用户", httpMethod = "post", notes = "查询用户")
+    @ApiOperation(value = "查询用户", notes = "查询用户")
     @GetMapping("queryList")
     public ApiResponse<List<SysUser>> queryList(){
         //System.out.println(keyname);
         return ApiResponse.success(sysUserSvc.findAllUser());
     }
 
-    @ApiOperation(value = "按分页查询用户", httpMethod = "post", notes = "按分页查询用户")
+    @ApiOperation(value = "按分页查询用户", notes = "按分页查询用户")
     @PostMapping("selectPageSysUserByQuery")
     public ApiResponse<PageResult<SysUser>> selectPageSysUserByQuery(@RequestBody SysUser sysUser){
         Page<SysUser> sysUsers = sysUserSvc.selectPageSysUserByQuery(sysUser);
