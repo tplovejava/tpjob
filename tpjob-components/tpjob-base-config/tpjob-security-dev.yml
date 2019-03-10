@@ -1,3 +1,9 @@
+server:
+  port: 7000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -70,7 +76,7 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/*Mapper.xml
   config-location: classpath:mybatis/mapper/config/sqlMapConfig.xml
   type-aliases-package: com.tp.soft
-eureka:
+#分布式事务
+tx-lcn:
   client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+    manager-address: 127.0.0.1:8070
