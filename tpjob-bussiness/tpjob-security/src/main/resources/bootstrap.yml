@@ -1,5 +1,3 @@
-server:
-  port: 7000
 spring:
   application:
     name: tpjob-security
@@ -8,7 +6,7 @@ spring:
       uri: http://localhost:5000/        #Config server的uri
       profile: dev                       #指定的环境
       label: master                      #指定分支
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
+#日志
+logging:
+  config: classpath:logback-boot.xml
+

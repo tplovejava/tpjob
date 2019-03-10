@@ -9,4 +9,4 @@ spring:
       server:
         git:
           uri: https://github.com/tplovejava/tpjob.git
-          search-paths: tpjob-base-config
+          search-paths: tpjob-components/tpjob-base-config
