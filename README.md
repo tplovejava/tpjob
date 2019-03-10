@@ -1,7 +1,7 @@
 tpjob
 
-springcloud搭建项目
-项目架构：
+springcloud搭建项目<br>
+项目架构：<br>
 tbjob-api：对外部接口
 tpjob-bussiness：业务服务
     tpjob-security：权限服务
