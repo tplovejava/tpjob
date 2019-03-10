@@ -12,4 +12,4 @@ springcloud搭建项目
     + tpjob-gateway：网关  
     + tpjob-redis: 缓存  
     + tpjob-register-center: 注册中心  
-    + tpjob-txlcn-center: 分布式事务服务中心  
+    + tpjob-txlcn-center: 分布式事务服务  
