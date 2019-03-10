@@ -52,10 +52,14 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/*Mapper.xml
   config-location: classpath:mybatis/mapper/config/sqlMapConfig.xml
   type-aliases-package: com.tp.soft
+#注册中心
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka/
+#日志
+logging:
+  config: logback-boot.xml
 #分布式事务
 tx-lcn:
   client:

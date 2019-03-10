@@ -6,7 +6,4 @@ spring:
       uri: http://localhost:5000/        #Config server的uri
       profile: dev                       #指定的环境
       label: master                      #指定分支
-#日志
-logging:
-  config: classpath:logback-boot.xml
 
