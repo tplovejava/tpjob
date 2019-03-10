@@ -1,9 +1,5 @@
 server:
   port: 7000
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka/
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -52,32 +48,15 @@ spring:
         login-username: admin
         # 登录密码
         login-password: 123456
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    password:
-     jedis:
-      pool:
-        max-active: 8
-          #最大等待连接中的数量,设 0 为没有限制
-        max-idle: 8
-        #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
-        max-wait: -1ms
-        #最小等待连接中的数量,设 0 为没有限制
-        min-idle: 0
-      lettuce:
-        pool:
-          max-active: 8
-          max-idle: 8
-          max-wait: -1ms
-          min-idle: 0
-        shutdown-timeout: 100ms
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*Mapper.xml
   config-location: classpath:mybatis/mapper/config/sqlMapConfig.xml
   type-aliases-package: com.tp.soft
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
 #分布式事务
 tx-lcn:
   client:
     manager-address: 127.0.0.1:8070
-#日志
