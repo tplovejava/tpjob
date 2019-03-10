@@ -11,6 +11,7 @@
     <modules>
         <module>tpjob-security</module>
         <module>tpjob-util</module>
+        <module>tpjob-baseinfo</module>
     </modules>
 
     <parent>

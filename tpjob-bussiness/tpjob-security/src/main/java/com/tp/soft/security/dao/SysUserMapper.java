@@ -10,4 +10,6 @@ public interface SysUserMapper {
     public List<SysUser> findAll() throws DataAccessException;
 
     public SysUser findById(int userid) throws DataAccessException;
+
+    public int insertUser(SysUser sysUser) throws DataAccessException;
 }

@@ -37,4 +37,11 @@ public class SysUserController {
         result.autowire(sysUsers);
         return ApiResponse.success(result);
     }
+
+    @PostMapping("/addUser")
+    public ApiResponse addUser(@RequestBody SysUser sysUser){
+        return sysUserSvc.addUser(sysUser);
+    }
+
+
 }

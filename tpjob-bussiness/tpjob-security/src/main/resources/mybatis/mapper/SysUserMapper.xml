@@ -15,4 +15,9 @@
     <select id="findById" parameterType="int" resultMap="baseResultMap">
         select * from sysUser where user_id = #{userid}
     </select>
+
+    <insert id="insertUser" parameterType="com.tp.soft.security.entity.SysUser" >
+      insert into sysUser(user_id, user_name, user_pass, user_truename)
+      values (#{userId}, ${userName}, #{userPass}, #{userTruename})
+    </insert>
 </mapper>
