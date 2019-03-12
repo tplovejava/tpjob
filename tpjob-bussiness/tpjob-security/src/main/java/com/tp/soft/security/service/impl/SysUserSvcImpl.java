@@ -3,6 +3,7 @@ package com.tp.soft.security.service.impl;
 import com.codingapi.txlcn.tc.annotation.LcnTransaction;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.tp.soft.annotation.RedisLock;
 import com.tp.soft.security.dao.SysUserMapper;
 import com.tp.soft.security.entity.SysUser;
 import com.tp.soft.security.restful.baseinfo.BaseinfoService;
@@ -24,12 +25,14 @@ public class SysUserSvcImpl implements SysUserSvc {
     private BaseinfoService baseinfoService;
 
     @Override
+    @RedisLock(lockName = "'lock_1'", retryTimes = 5)
     public List<SysUser> findAllUser() {
 
         return sysUserMapper.findAll();
     }
 
     @Override
+
     public SysUser findById(int userid) {
         return sysUserMapper.findById(userid);
     }
