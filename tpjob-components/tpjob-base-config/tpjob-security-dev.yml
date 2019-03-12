@@ -64,3 +64,16 @@ logging:
 tx-lcn:
   client:
     manager-address: 127.0.0.1:8070
+taop:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    database: 0
+  jedis:
+    pool:
+      maxIdle: 10000
+      maxTotal: 30000
+      maxWaitMillis: 1500
+      testOnBorrow: true
+      testOnReturn: true
