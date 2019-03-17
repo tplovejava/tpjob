@@ -77,4 +77,4 @@ taop:
       maxWaitMillis: 1500
       testOnBorrow: true
       testOnReturn: true
-keyName: taop1
+keyName: taop
