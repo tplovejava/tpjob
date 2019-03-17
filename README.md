@@ -14,3 +14,9 @@ springcloud搭建项目
     + tpjob-redis: 缓存  
     + tpjob-register-center: 注册中心  
     + tpjob-txlcn-center: 分布式事务服务  
+
+#spring cloud bus消息总线 
+下载rabbitmq  
+官网http://www.rabbitmq.com/  
+或者直接https://brew.sh/    
+安装之后访问http://localhost:15672/
