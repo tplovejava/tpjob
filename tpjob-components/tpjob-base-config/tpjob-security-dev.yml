@@ -58,4 +58,4 @@ management:
     web:
       exposure:
         include: bus-refresh
-keyName: cs
+keyName: tp
