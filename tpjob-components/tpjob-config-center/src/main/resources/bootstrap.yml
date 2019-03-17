@@ -10,3 +10,17 @@ spring:
         git:
           uri: https://github.com/tplovejava/tpjob.git
           search-paths: tpjob-components/tpjob-base-config
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

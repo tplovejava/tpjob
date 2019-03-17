@@ -19,6 +19,11 @@ spring:
     testOnReturn: false
     filters: stat,wall,log4j
     logSlowSql: true
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*Mapper.xml
   config-location: classpath:mybatis/mapper/config/sqlMapConfig.xml
@@ -48,4 +53,9 @@ taop:
       maxWaitMillis: 1500
       testOnBorrow: true
       testOnReturn: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
 keyName: tp
