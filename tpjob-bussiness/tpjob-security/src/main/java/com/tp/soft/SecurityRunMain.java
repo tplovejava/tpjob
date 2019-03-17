@@ -12,7 +12,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @MapperScan("com.tp.soft.*.dao")
 @EnableDistributedTransaction
-@EnableAutoConfiguration(exclude = {DruidDataSourceAutoConfigure.class})
 public class SecurityRunMain {
 
     public static void main(String[] args) {

@@ -7,6 +7,8 @@ import com.tp.soft.util.model.PageResult;
 import com.tp.soft.util.web.ApiResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,15 +19,18 @@ import java.util.List;
 
 @RestController
 @Api("用户管理")
+@RefreshScope
 public class SysUserController {
 
+    @Value("${keyName}")
+    private String keyName;
     @Resource
     private SysUserSvc sysUserSvc;
 
     @ApiOperation(value = "查询用户", notes = "查询用户")
     @GetMapping("queryList")
     public ApiResponse<List<SysUser>> queryList(){
-        //System.out.println(keyname);
+        System.out.println(keyName);
         return ApiResponse.success(sysUserSvc.findAllUser());
     }
 

@@ -6,4 +6,7 @@ spring:
       uri: http://localhost:5000/        #Config server的uri
       profile: dev                       #指定的环境
       label: master                      #指定分支
-
+    bus:
+      enabled: true
+      trace:
+        enabled: true
